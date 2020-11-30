@@ -50,9 +50,35 @@
                 <ul class="current">
                     <li class="toctree-l1 current"><a class="reference internal current" href=".">Home</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#package-install">Package Install</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#commands">Commands</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#project-layout">Project layout</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#create-github-pages">Create GitHub Pages</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#create-new-repo">Create new repo</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#initial-commit">Initial Commit</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#deploying-on-github-pages">Deploying on GitHub Pages</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#tutorial-for-editing-content">Tutorial for editing content</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#contribute-content">Contribute Content</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#organize-pages">Organize Pages</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#raise-pull-request">Raise Pull Request</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#markdown-format-specification">Markdown Format Specification</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#updating-webpage">Updating webpage</a>
     </li>
     </ul>
                     </li>
@@ -95,6 +121,11 @@
               
                 <h1 id="welcome-to-mkdocs">Welcome to MkDocs</h1>
 <p>For full documentation visit <a href="https://www.mkdocs.org">mkdocs.org</a>.</p>
+<h2 id="package-install">Package Install</h2>
+<p>All the contents of this website are edited with markdown format. The markdown files are then converted to static html pages via <code>Mkdocs</code> package. These commands will install the python dependencies onto a python environment.</p>
+<pre><code>pip install mkdocs
+pip install pymdown-extensions
+</code></pre>
 <h2 id="commands">Commands</h2>
 <ul>
 <li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
@@ -108,6 +139,63 @@ docs/
     index.md  # The documentation homepage.
     ...       # Other markdown pages, images and other files.
 </code></pre>
+<h2 id="create-github-pages">Create GitHub Pages</h2>
+<h4 id="create-new-repo">Create new repo</h4>
+<p>on <a href="https://github.com/kj2431/useful_code/">github</a></p>
+<h4 id="initial-commit">Initial Commit</h4>
+<pre><code>cd useful_code
+
+mkdocs new .
+echo 'theme: readthedocs' &gt;&gt; mkdocs.yml
+
+mkdocs serve
+</code></pre>
+<p>preview on http://127.0.0.1:8000</p>
+<h4 id="deploying-on-github-pages">Deploying on GitHub Pages</h4>
+<pre><code>echo 'site/' &gt;&gt;.gitignore
+git add .
+git commit -a -m 'first commit'
+git push origin master
+
+mkdocs gh-deploy
+</code></pre>
+<p>This should take a few minutes before the website is available.</p>
+<p>Check <a href="https://kj2431.github.io/useful_code/">https://kj2431.github.io/useful_code/</a></p>
+<p>If not available, then do the following:</p>
+<ol>
+<li>Delete gh-pages branch</li>
+<li>Make sure github pages source is none in the repo settings</li>
+<li>Update mkdocs to latest version</li>
+<li>Use "mkdocs gh-deploy" command once again</li>
+<li>In a few minutes check if website exists; if not, delete repo and try again. </li>
+</ol>
+<h2 id="tutorial-for-editing-content">Tutorial for editing content</h2>
+<h3 id="contribute-content">Contribute Content</h3>
+<p>Write your contents in markdown format and save them in <code>/docs</code> folder, with file extention <strong>.md</strong></p>
+<h3 id="organize-pages">Organize Pages</h3>
+<p>Specify your content in <code>mkdocs.yml</code>, section <code>nav</code> as follows:</p>
+<pre><code>    - TOPIC:
+      - todo I: todo_I.md
+      - todo II: todo_II.md
+</code></pre>
+<p>in which <code>TOPIC</code> will be top level folder, and <code>todo I</code> and <code>todo II</code> will be the second level pages</p>
+<h3 id="raise-pull-request">Raise Pull Request</h3>
+<p>After the content editting is finished, remember to raise pull request for content merging.</p>
+<h3 id="markdown-format-specification">Markdown Format Specification</h3>
+<p>https://guides.github.com/features/mastering-markdown/</p>
+<h2 id="updating-webpage">Updating webpage</h2>
+<ul>
+<li>Organize all markdown files within the <code>docs</code> folder.</li>
+<li>Edit website navigation map by editing the <code>nav</code> section in <code>mkdocs.yml</code> as shown above.</li>
+<li>
+<p>Verify rendering effect:  <br />
+  On your desktop computer, navigate to the root folder of this repo, type <code>mkdocs serve</code> in command line; this will start a website server locally on <code>127.0.0.1:8000</code>. Check to make sure the HTML page is rendered properly, and there are no formatting issues. Please note that when embedding an outside HTML file onto the markdown page, it must also follow HTTPS standards.</p>
+</li>
+<li>
+<p>Officially publish to Github pages  <br />
+  Type <code>mkdocs gh-deploy</code> in command line.</p>
+</li>
+</ul>
               
             </div>
           </div>
@@ -161,5 +249,5 @@ docs/
 
 <!--
 MkDocs version : 1.1.2
-Build Date UTC : 2020-11-29 04:12:44.988752+00:00
+Build Date UTC : 2020-11-30 01:08:33.540232+00:00
 -->
