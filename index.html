@@ -56,13 +56,13 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#commands">Commands</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#project-layout">Project layout</a>
-    </li>
     <li class="toctree-l2"><a class="reference internal" href="#create-github-pages">Create GitHub Pages</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#create-new-repo">Create new repo</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#initial-commit">Initial Commit</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#project-layout">Project layout</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#adding-content">Adding Content</a>
     </li>
@@ -144,12 +144,6 @@ pip install pymdown-extensions
 <li><code>mkdocs gh-deploy</code> - Deploys on GitHub Pages.</li>
 <li><code>mkdocs -h</code> - Print help message and exit.</li>
 </ul>
-<h2 id="project-layout">Project layout</h2>
-<pre><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
-</code></pre>
 <h2 id="create-github-pages">Create GitHub Pages</h2>
 <h4 id="create-new-repo">Create new repo</h4>
 <p>Create on <a href="https://github.com/kj2431/useful_code/">Github</a></p>
@@ -163,8 +157,15 @@ echo 'theme: readthedocs' &gt;&gt; mkdocs.yml
 mkdocs serve
 </code></pre>
 <p>preview on http://127.0.0.1:8000</p>
+<h4 id="project-layout">Project layout</h4>
+<p>The following is a simple layout of what the initial MkDocs repo should look like:</p>
+<pre><code>mkdocs.yml    # The configuration file.
+docs/         # The folder where all docs are stored.
+    index.md  # The documentation homepage.
+    ...       # Other markdown pages, images and other files.
+</code></pre>
 <h4 id="adding-content">Adding Content</h4>
-<p>Copy and paste all useful code and text files into the repository folder. Use README.md file as a brief introduction to the project. Don't forget to branch or fork a repository if collaborating. </p>
+<p>Copy and paste all necessary code and text files into the repository folder. Use README.md file as a brief introduction to the project. Don't forget to branch or fork a repository if collaborating. </p>
 <h4 id="deploying-on-github-pages">Deploying on GitHub Pages</h4>
 <pre><code>echo 'site/' &gt;&gt;.gitignore
 git add .
@@ -266,5 +267,5 @@ TOPIC:
 
 <!--
 MkDocs version : 1.1.2
-Build Date UTC : 2020-12-17 06:31:19.698362+00:00
+Build Date UTC : 2020-12-17 06:58:12.709550+00:00
 -->
