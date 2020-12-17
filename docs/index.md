@@ -32,7 +32,9 @@ pip install pymdown-extensions
 
 #### Create new repo
 
-on [Github](https://github.com/kj2431/useful_code/)
+Create on [Github](https://github.com/kj2431/useful_code/)
+
+Then use GitHub Desktop or Terminal `git clone url` in desired folder
 
 #### Initial Commit
 
