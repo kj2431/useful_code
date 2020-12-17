@@ -1,9 +1,14 @@
-# Welcome to MkDocs
+# Welcome to MkDocs 
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+### A guide for using MkDocs with GitHub Pages.
+
+For full documentation visit [mkdocs.org](https://www.mkdocs.org) and [github pages](https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages).
 
 ## Package Install
-All the contents of this website are edited with markdown format. The markdown files are then converted to static html pages via `Mkdocs` package. These commands will install the python dependencies onto a python environment.
+All the contents of this website are edited with markdown format. The markdown files are then converted to static html pages via `Mkdocs` package. 
+
+These commands will install the python dependencies onto a python environment. It is recommended that an anaconda or miniconda environment is used to easily edit markdown files using a code editor. 
+
 ```
 pip install mkdocs
 pip install pymdown-extensions
@@ -27,7 +32,7 @@ pip install pymdown-extensions
 
 #### Create new repo
 
-on [github](https://github.com/kj2431/useful_code/)
+on [Github](https://github.com/kj2431/useful_code/)
 
 #### Initial Commit
 
@@ -75,15 +80,18 @@ Write your contents in markdown format and save them in `/docs` folder, with fil
 ### Organize Pages
 Specify your content in `mkdocs.yml`, section `nav` as follows:
 ```
-    - TOPIC:
-      - todo I: todo_I.md
-      - todo II: todo_II.md
+site_name: SITE_NAME
+theme: readthedocs
+
+TOPIC:
+	  - todo I: todo_I.md
+    - todo II: todo_II.md
 ```
 in which `TOPIC` will be top level folder, and `todo I` and `todo II` will be the second level pages
 
 
 ### Raise Pull Request
-After the content editting is finished, remember to raise pull request for content merging.
+After the content editting is finished, remember to raise pull request for content merging especially if this is collaborative work.
 
 ### Markdown Format Specification
 https://guides.github.com/features/mastering-markdown/
