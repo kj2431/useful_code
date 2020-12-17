@@ -68,7 +68,7 @@ If not available, then do the following:
 1. Delete gh-pages branch
 2. Make sure github pages source is none in the repo settings
 3. Update mkdocs to latest version
-4. Use "mkdocs gh-deploy" command once again
+4. Use `mkdocs gh-deploy` command once again
 5. In a few minutes check if website exists; if not, delete repo and try again. 
 
 
@@ -84,7 +84,7 @@ site_name: SITE_NAME
 theme: readthedocs
 
 TOPIC:
-	  - todo I: todo_I.md
+    - todo I: todo_I.md
     - todo II: todo_II.md
 ```
 in which `TOPIC` will be top level folder, and `todo I` and `todo II` will be the second level pages
