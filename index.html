@@ -50,6 +50,8 @@
                 <ul class="current">
                     <li class="toctree-l1 current"><a class="reference internal current" href=".">Home</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#a-guide-for-using-mkdocs-with-github-pages">A guide for using MkDocs with GitHub Pages.</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#package-install">Package Install</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#commands">Commands</a>
@@ -120,9 +122,11 @@
             <div class="section">
               
                 <h1 id="welcome-to-mkdocs">Welcome to MkDocs</h1>
-<p>For full documentation visit <a href="https://www.mkdocs.org">mkdocs.org</a>.</p>
+<h3 id="a-guide-for-using-mkdocs-with-github-pages">A guide for using MkDocs with GitHub Pages.</h3>
+<p>For full documentation visit <a href="https://www.mkdocs.org">mkdocs.org</a> and <a href="https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages">github pages</a>.</p>
 <h2 id="package-install">Package Install</h2>
-<p>All the contents of this website are edited with markdown format. The markdown files are then converted to static html pages via <code>Mkdocs</code> package. These commands will install the python dependencies onto a python environment.</p>
+<p>All the contents of this website are edited with markdown format. The markdown files are then converted to static html pages via <code>Mkdocs</code> package. </p>
+<p>These commands will install the python dependencies onto a python environment. It is recommended that an anaconda or miniconda environment is used to easily edit markdown files using a code editor. </p>
 <pre><code>pip install mkdocs
 pip install pymdown-extensions
 </code></pre>
@@ -141,7 +145,7 @@ docs/
 </code></pre>
 <h2 id="create-github-pages">Create GitHub Pages</h2>
 <h4 id="create-new-repo">Create new repo</h4>
-<p>on <a href="https://github.com/kj2431/useful_code/">github</a></p>
+<p>on <a href="https://github.com/kj2431/useful_code/">Github</a></p>
 <h4 id="initial-commit">Initial Commit</h4>
 <pre><code>cd useful_code
 
@@ -174,9 +178,12 @@ mkdocs gh-deploy
 <p>Write your contents in markdown format and save them in <code>/docs</code> folder, with file extention <strong>.md</strong></p>
 <h3 id="organize-pages">Organize Pages</h3>
 <p>Specify your content in <code>mkdocs.yml</code>, section <code>nav</code> as follows:</p>
-<pre><code>    - TOPIC:
+<pre><code>site_name: SITE_NAME
+theme: readthedocs
+
+TOPIC:
       - todo I: todo_I.md
-      - todo II: todo_II.md
+    - todo II: todo_II.md
 </code></pre>
 <p>in which <code>TOPIC</code> will be top level folder, and <code>todo I</code> and <code>todo II</code> will be the second level pages</p>
 <h3 id="raise-pull-request">Raise Pull Request</h3>
@@ -249,5 +256,5 @@ mkdocs gh-deploy
 
 <!--
 MkDocs version : 1.1.2
-Build Date UTC : 2020-11-30 01:08:33.540232+00:00
+Build Date UTC : 2020-12-17 02:48:59.122970+00:00
 -->
