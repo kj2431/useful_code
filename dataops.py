@@ -22,7 +22,20 @@ def dataset_count(dataset_ss, countfield='col1', save_csv=False):
     if save_csv is True:
         df.drop_duplicates().to_csv('count_'+str(len(dataset_ss))+'.csv', index=False)
     return df.drop_duplicates().sort_values('count', ascending=False)
-    
+
+def dropna_col(df, column='col1'):
+    """
+    """
+    return df[df[column].notna()]
+
+def df_columns_lower(df):
+    """
+    """
+    col_n = [str(i).replace(' ', '').lower() for i in list(df.columns)]
+    df.columns = col_n
+    return df
+
+
 def flatten_list(list1):
     """
     Flattens python list
