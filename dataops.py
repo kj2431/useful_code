@@ -59,3 +59,5 @@ def df_list_to_excel(df_list, outputname):
     for i in range(0, len(df_list)):
         df_list[i].to_excel(writer, sheet_name=str(i), index=False)
 
+    writer.save()
+    return 'Done'
