@@ -51,4 +51,11 @@ def flatten_list(list1):
     """
     
     return [j for i in list1 for j in i]
-    
+
+def df_list_to_excel(df_list, outputname):
+    """
+    """
+    writer = pd.ExcelWriter(outputname+ '.xlsx')
+    for i in range(0, len(df_list)):
+        df_list[i].to_excel(writer, sheet_name=str(i), index=False)
+
