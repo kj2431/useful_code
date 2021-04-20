@@ -20,7 +20,6 @@ from networkx.algorithms import isomorphism as iso
 Source:
 https://github.com/dakoner/keras-molecules/blob/dbbb790e74e406faa70b13e8be8104d9e938eba2/convert_rdkit_to_networkx.py
 '''
-# Replace mol_to_nx with function in gkit once that function is complete
 def mol_to_nx(smiles, addHs=False, explicitOnly=False):
     
     if type(smiles) is Chem.rdchem.Mol:
