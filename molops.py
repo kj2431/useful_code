@@ -18,3 +18,9 @@ def murcko_scaffold(smiles):
     """
     """
     return Chem.Scaffolds.MurckoScaffold.MurckoScaffoldSmilesFromSmiles(smiles, includeChirality=False)
+
+
+def morgan_fingerprints_array(smiles):
+    """
+    """
+    return np.array(AllChem.GetMorganFingerprintAsBitVect(Chem.MolFromSmiles(s), 2))
