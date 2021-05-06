@@ -20,6 +20,6 @@ def ngram_to_nlist(string1, n=2):
     """
     """
     ngram = nltk.ngrams(str(string1).split(), n)
-    nlist = [" ".join(list(grams)) for grams in ngram]
+    nlist = [" ".join(list(g)) for g in ngram]
     
     return nlist
