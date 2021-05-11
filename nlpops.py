@@ -16,10 +16,12 @@ def extract_number(string1):
     """
     return re.findall('\d*\.?\d+',string1)
 
+
 def extract_sentence(string1, keyword):
     """
     """
     return re.findall(r"([^.]*?" + keyword + "[^.]*\.)", string1)
+
 
 def ngram_to_nlist(string1, n=2):
     """
@@ -29,7 +31,8 @@ def ngram_to_nlist(string1, n=2):
     
     return nlist
 
-def ngram_search_engine(search_string, query):
+
+def ngram_search(search_string, query):
     """
     """
     ng = len(query.split(' '))
@@ -43,3 +46,5 @@ def ngram_search_engine(search_string, query):
         return True, keyword[0], " ; ".join(e1[0])
     else:
         return False, False, False
+
+    
