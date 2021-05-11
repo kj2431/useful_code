@@ -35,16 +35,15 @@ def ngram_to_nlist(string1, n=2):
 def ngram_search(search_string, query):
     """
     """
-    ng = len(query.split(' '))
-    query = [query]
-    nlist = ngram_to_nlist(search_string, n=ng)
-    s = list(set(nlist) & set(query))
+    N = len(query.split(' '))
+    query = set([query])
+    snlist = set(ngram_to_nlist(search_string, n=N))
+    s = list(snlist & query)
     if len(s) > 0:
-        e1 = []
-        for j in range(0, len(s2)):
-            e1.append(extract_sentence(search_string, query))
-        return True, keyword[0], " ; ".join(e1[0])
+        x = []
+        for S in range(0, len(s)):
+            x.append(extract_sentence(search_string, s[S]))
+        return (True, query[0], " ; ".join(x[0]))
     else:
-        return False, False, False
-
+        return (False)
     
