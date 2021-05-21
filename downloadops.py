@@ -24,4 +24,4 @@ def parse_pdb_all(url='https://ftp.rcsb.org/pub/pdb/data/structures/all/pdb/'):
     return pd.DataFrame({'pdbfile':allpdb, 'url':[url+s for s in allpdb]})
 
 def _download_helper(url, filename):
-    wget.download(url+allpdb[i], bar=None, out='pdb/'+filename)
+    wget.download(url, bar=None, out=filename)
