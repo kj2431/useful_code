@@ -5,10 +5,12 @@ import time
 
 import re
 
+import numpy as np
 import pandas as pd
 
 from tqdm import tqdm 
 from multiprocessing.pool import ThreadPool
+from joblib import Parallel, delayed
 
 def parse_pdb_all(url='https://ftp.rcsb.org/pub/pdb/data/structures/all/pdb/'):
     """
@@ -25,3 +27,14 @@ def parse_pdb_all(url='https://ftp.rcsb.org/pub/pdb/data/structures/all/pdb/'):
 
 def _download_helper(url, filename):
     wget.download(url, bar=None, out=filename)
+    return None
+
+def download_pdb_df(pdb_df):
+    s = [_download_helper(pdb_df['url'].iloc[i], pdb_df['pdbfile'].iloc[i]) for i in range(0, len(pdb_df))]
+    return None
+
+def download_multiprocess_wrapper(df, processes=8):
+    df1n = np.array_split(df, processes)
+    cores = list(np.linspace(0, processes-1, processes).astype(int))
+    Parallel(n_jobs=processes)(delayed(download_pdb_all)(df_n) for core, df_n in zip(cores, df1n))
+    return None
