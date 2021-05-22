@@ -26,15 +26,29 @@ def parse_pdb_all(url='https://ftp.rcsb.org/pub/pdb/data/structures/all/pdb/'):
     return pd.DataFrame({'pdbfile':allpdb, 'url':[url+s for s in allpdb]})
 
 def _download_helper(url, filename):
-    wget.download(url, bar=None, out=filename)
+    """
+    """
+    try:
+        s = wget.download(url, bar=None, out=filename)
+    except:
+        print('error-timeout:', url)
     return None
 
+
+
 def download_pdb_df(pdb_df):
+    """
+    """
     s = [_download_helper(pdb_df['url'].iloc[i], pdb_df['pdbfile'].iloc[i]) for i in range(0, len(pdb_df))]
     return None
 
-def download_multiprocess_wrapper(df, processes=8):
+
+def download_multiprocess_wrapper(df, processes=64):
+    """
+    64 async requests for safe downloading; tested with up to 1024 processes (extremely unstable)
+    """
     df1n = np.array_split(df, processes)
     cores = list(np.linspace(0, processes-1, processes).astype(int))
-    Parallel(n_jobs=processes)(delayed(download_pdb_all)(df_n) for core, df_n in zip(cores, df1n))
+    Parallel(n_jobs=processes)(delayed(download_pdb_df)(df_n) for core, df_n in zip(cores, df1n))
     return None
+
