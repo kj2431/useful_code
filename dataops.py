@@ -61,3 +61,34 @@ def df_list_to_excel(df_list, outputname):
 
     writer.save()
     return 'Done'
+
+### RAY MULTIPROCESSING #############################################################
+import time
+
+import ray
+ray.init(address='auto')
+
+@timefunc
+def to_x():
+    """
+    """
+    df = pd.read_csv('')
+    y = df.apply(lambda x: def1(x[0]), axis=1)
+    return y
+
+@ray.remote
+def to_x_chunk(df):
+    """
+    """
+    y = df.apply(lambda x: def1(x[0]), axis=1)
+    return y
+
+@timefunc
+def to_x_ray(chunk):
+    """
+    """
+    L = 100000
+    df = pd.read_csv('')
+    ray_y = ray.get([to_x_chunk.remote(dfc) for dfc in df])
+    return ray_y
+    
